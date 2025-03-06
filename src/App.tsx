@@ -1,26 +1,38 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import HomePage from './pages/HomePage';
+import AboutMePage from './pages/AboutMePage';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router';
+import TetrisPage from './pages/games/TetrisPage';
+import TicTacToePage from './pages/games/TicTacToePage';
+import SnakePage from './pages/games/SnakePage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [darkLightMode, setDarkLightMode] = useState(true);
+
+    return (
+        <BrowserRouter>
+            <Header
+                darkLightMode={ darkLightMode }
+                toggleDarkLightMode={ () => setDarkLightMode(darkLightMode => !darkLightMode) }
+            />
+            <React.StrictMode>
+                <header className={`app-header-${darkLightMode ? 'dark' : 'light'}`}>
+                        <Routes>
+                            <Route index path="Home" element={<HomePage />} />
+                            <Route path="AboutMe" element={<AboutMePage />} />
+
+                            {/* Games */}
+                            <Route path="TicTacToe" element={<TicTacToePage />} />
+                            <Route path="Snake" element={<SnakePage />} />
+                            <Route path="Tetris" element={<TetrisPage />} />
+                        </Routes>
+                </header>
+            </React.StrictMode>
+        </BrowserRouter>
+    );
 }
 
 export default App;
