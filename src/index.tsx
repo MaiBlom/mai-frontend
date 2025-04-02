@@ -1,9 +1,7 @@
-import './index.css';
+import './css/index.css';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
-import React from 'react';
-import { BrowserRouter, Routes } from 'react-router';
 
 const root = document.getElementById('root') as HTMLElement;
 

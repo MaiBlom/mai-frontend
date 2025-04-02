@@ -1,0 +1,57 @@
+.tic-tac-toe {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+}
+
+.board {
+    display: grid; /* Use CSS Grid for a 3x3 layout */
+    grid-template-columns: repeat(3, 60px); /* Three columns of equal width */
+    grid-template-rows: repeat(3, 60px);    /* Three rows of equal height */
+    gap: 5px;                               /* Space between cells */
+    justify-content: center;                /* Center the board horizontally */
+    margin-top: 20px;
+}
+
+.cell-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 6px;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cell:disabled {
+    background-color: #f0f0f0;
+}
+
+.winner-message, .draw-message {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.reset-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    background-color: #0056b3;
+}

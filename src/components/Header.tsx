@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 
 function Header(props: { darkLightMode: boolean, toggleDarkLightMode: () => void }) {
     return (
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar bg={`${props.darkLightMode ? 'dark' : 'grey'}`} data-bs-theme={`${props.darkLightMode ? 'dark' : 'light'}`}>
             <Container>
                 <Navbar.Brand>Mai page</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
