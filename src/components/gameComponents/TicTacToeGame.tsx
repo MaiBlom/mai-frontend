@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../css/tictactoe.css';
+import '../../assets/css/tictactoe.css';
 
 function TicTacToeGame() {
     const [board, setBoard] = useState<(string | null)[][]>([

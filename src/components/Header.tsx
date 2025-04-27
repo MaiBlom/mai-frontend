@@ -4,7 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router';
 
-function Header(props: { darkLightMode: boolean, toggleDarkLightMode: () => void }) {
+function Header(props: { darkLightMode: boolean, toggleDarkLightMode: () => void,
+                            loggedIn: boolean, setLoggedIn: () => void }) {
     return (
         <Navbar bg={`${props.darkLightMode ? 'dark' : 'grey'}`} data-bs-theme={`${props.darkLightMode ? 'dark' : 'light'}`}>
             <Container>
@@ -25,6 +26,9 @@ function Header(props: { darkLightMode: boolean, toggleDarkLightMode: () => void
                 <Nav>
                     <Nav.Link onClick={props.toggleDarkLightMode}>
                         { props.darkLightMode ? 'Dark' : 'Light' }mode
+                    </Nav.Link>
+                    <Nav.Link onClick={props.setLoggedIn}>
+                        { props.loggedIn ? 'Logout' : 'Login'}
                     </Nav.Link>
                 </Nav>
             </Container>

@@ -10,6 +10,7 @@ import TicTacToePage from './pages/games/TicTacToePage';
 import SnakePage from './pages/games/SnakePage';
 
 function App() {
+    const [loggedIn, setLoggedIn] = useState(false);
     const [darkLightMode, setDarkLightMode] = useState(true);
 
     return (
@@ -17,6 +18,8 @@ function App() {
             <Header
                 darkLightMode={ darkLightMode }
                 toggleDarkLightMode={ () => setDarkLightMode(darkLightMode => !darkLightMode) }
+                loggedIn={ loggedIn }
+                setLoggedIn={ () => setLoggedIn(loggedIn => !loggedIn) }
             />
             <React.StrictMode>
                 <header className={`app-header-${darkLightMode ? 'dark' : 'light'}`}>
