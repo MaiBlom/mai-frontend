@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router';
+import axios from 'axios';
 
 function Header(props: { darkLightMode: boolean, toggleDarkLightMode: () => void,
                             loggedIn: boolean, setLoggedIn: () => void }) {
@@ -27,13 +28,22 @@ function Header(props: { darkLightMode: boolean, toggleDarkLightMode: () => void
                     <Nav.Link onClick={props.toggleDarkLightMode}>
                         { props.darkLightMode ? 'Dark' : 'Light' }mode
                     </Nav.Link>
-                    <Nav.Link onClick={props.setLoggedIn}>
+                    {/* <Nav.Link onClick={() => fetchData()}>
                         { props.loggedIn ? 'Logout' : 'Login'}
-                    </Nav.Link>
+                    </Nav.Link> */}
                 </Nav>
             </Container>
         </Navbar>
     );
 }
+
+/* const fetchData = async () => {
+    try {
+        const response = await axios.get('http://localhost:8080/api/user/1');
+        console.log(response);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+} */
 
 export default Header;

@@ -12,6 +12,7 @@
     "@types/node": "^16.18.126",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.6",
+    "axios": "^1.9.0",
     "bootstrap": "^5.3.5",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.9",
@@ -24,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "rebuild-docker-image": "sudo docker compose down && sudo docker compose build --no-cache && sudo docker compose up -d"
   },
   "browserslist": {
     "production": [
