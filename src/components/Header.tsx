@@ -14,13 +14,13 @@ function Header(props: { darkLightMode: boolean, toggleDarkLightMode: () => void
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav>
-                        <Nav.Link as={Link} to="Home">Home</Nav.Link>
+                        <Nav.Link as={Link} to="">Home</Nav.Link>
                         <NavDropdown title="Games" id="basic-nav-dropdown">
-                            <NavDropdown.Item as={Link} to="TicTacToe">Tic Tac Toe</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="Snake">Snake</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="Tetris">Tetris</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={`${window.location.pathname}tictactoe`}>Tic Tac Toe</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={`${window.location.pathname}snake`}>Snake</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={`${window.location.pathname}tetris`}>Tetris</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link as={Link} to="AboutMe">About me</Nav.Link>
+                        <Nav.Link as={Link} to={`${window.location.pathname}aboutme`}>About me</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
 

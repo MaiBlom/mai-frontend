@@ -24,13 +24,13 @@ function App() {
             <React.StrictMode>
                 <header className={`app-header-${darkLightMode ? 'dark' : 'light'}`}>
                         <Routes>
-                            <Route index path="Home" element={<HomePage />} />
-                            <Route path="AboutMe" element={<AboutMePage />} />
+                            <Route index path={window.location.pathname} element={<HomePage />} />
+                            <Route path={`${window.location.pathname}aboutme`} element={<AboutMePage />} />
 
                             {/* Games */}
-                            <Route path="TicTacToe" element={<TicTacToePage />} />
-                            <Route path="Snake" element={<SnakePage />} />
-                            <Route path="Tetris" element={<TetrisPage />} />
+                            <Route path={`${window.location.pathname}tictactoe`} element={<TicTacToePage />} />
+                            <Route path={`${window.location.pathname}snake`} element={<SnakePage />} />
+                            <Route path={`${window.location.pathname}tetris`} element={<TetrisPage />} />
                         </Routes>
                 </header>
             </React.StrictMode>
