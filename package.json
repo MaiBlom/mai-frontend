@@ -2,7 +2,7 @@
   "name": "mai-website-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./src/index.tsx",
+  "homepage": ".",
   "volta": {
     "node": "23.11.0"
   },
