@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@tsconfig/node23": "^23.0.1",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "wrangler": "^4.20.0"
   }
 }
