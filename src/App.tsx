@@ -11,29 +11,29 @@ import SnakePage from './pages/games/SnakePage';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
-    const [darkLightMode, setDarkLightMode] = useState(true);
+    const [theme, toggleTheme] = useState(true);
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename='/'>
             <Header
-                darkLightMode={ darkLightMode }
-                toggleDarkLightMode={ () => setDarkLightMode(darkLightMode => !darkLightMode) }
+                theme={ theme }
+                toggleTheme={ () => toggleTheme(theme => !theme) }
                 loggedIn={ loggedIn }
                 setLoggedIn={ () => setLoggedIn(loggedIn => !loggedIn) }
             />
-            <React.StrictMode>
-                <header className={`app-header-${darkLightMode ? 'dark' : 'light'}`}>
-                        <Routes>
-                            <Route index path={window.location.pathname} element={<HomePage />} />
-                            <Route path={`${window.location.pathname}aboutme`} element={<AboutMePage />} />
+            <div className={`app-${theme ? 'dark' : 'light'}`}>
+                <React.StrictMode>
+                    <Routes>
+                        <Route index path={`${window.location.hostname}/`} element={<HomePage />} />
+                        <Route path={`/aboutme`} element={<AboutMePage />} />
 
-                            {/* Games */}
-                            <Route path={`${window.location.pathname}tictactoe`} element={<TicTacToePage />} />
-                            <Route path={`${window.location.pathname}snake`} element={<SnakePage />} />
-                            <Route path={`${window.location.pathname}tetris`} element={<TetrisPage />} />
-                        </Routes>
-                </header>
-            </React.StrictMode>
+                        {/* Games */}
+                        <Route path={`/tictactoe`} element={<TicTacToePage />} />
+                        <Route path={`/snake`} element={<SnakePage />} />
+                        <Route path={`/tetris`} element={<TetrisPage />} />
+                    </Routes>
+                </React.StrictMode>
+            </div>
         </BrowserRouter>
     );
 }

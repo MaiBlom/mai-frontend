@@ -3,35 +3,51 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router';
-import axios from 'axios';
+import { useState } from 'react';
+import { ReactComponent as Moon } from '../assets/svg/moon.svg'
+import { ReactComponent as Sun } from '../assets/svg/sun.svg'
 
-function Header(props: { darkLightMode: boolean, toggleDarkLightMode: () => void,
-                            loggedIn: boolean, setLoggedIn: () => void }) {
+function Header(props: { 
+    theme: boolean,
+    toggleTheme: () => void,
+    loggedIn: boolean,
+    setLoggedIn: () => void
+}) {
+    const [loginPositionCss, setLoginPositionCss] = useState(false);
     return (
-        <Navbar bg={`${props.darkLightMode ? 'dark' : 'grey'}`} data-bs-theme={`${props.darkLightMode ? 'dark' : 'light'}`}>
+        <Navbar
+            bg={`${props.theme ? 'dark' : 'light'}`}
+            data-bs-theme={`${props.theme ? 'dark' : 'light'}`}
+            fixed="top"
+            expand="md">
             <Container>
-                <Navbar.Brand>Mai page</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Nav style={{ flexDirection: 'row' }}>
+                    <Nav.Link style={{paddingRight: '10px'}}
+                        onClick={props.toggleTheme}>
+                            { props.theme ? <Moon /> : <Sun /> }
+                    </Nav.Link>
+                    <Navbar.Brand>Mai page</Navbar.Brand>
+                </Nav>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav"
+                    style={{ flexDirection: 'row' }}
+                    onEnter={ () => setLoginPositionCss(false)}
+                    onExited={ () => setLoginPositionCss(true) }>
                     <Nav>
-                        <Nav.Link as={Link} to="">Home</Nav.Link>
-                        <NavDropdown title="Games" id="basic-nav-dropdown">
-                            <NavDropdown.Item as={Link} to={`${window.location.pathname}tictactoe`}>Tic Tac Toe</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to={`${window.location.pathname}snake`}>Snake</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to={`${window.location.pathname}tetris`}>Tetris</NavDropdown.Item>
+                        <Nav.Link as={Link} to={`/`}>Home</Nav.Link>
+                        <NavDropdown title="Games" id="collapsible-nav-dropdown">
+                            <NavDropdown.Item as={Link} to={`/tictactoe`}>Tic Tac Toe</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={`/snake`}>Snake</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={`/tetris`}>Tetris</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link as={Link} to={`${window.location.pathname}aboutme`}>About me</Nav.Link>
+                        <Nav.Link as={Link} to={`/aboutme`}>About me</Nav.Link>
+                    </Nav>
+                    <Nav style={ loginPositionCss ? { position: 'fixed', float: 'right', right: '10px' } : {} }>
+                        <Nav.Link>
+                            { props.loggedIn ? 'Logout' : 'Login'}
+                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-
-                <Nav>
-                    <Nav.Link onClick={props.toggleDarkLightMode}>
-                        { props.darkLightMode ? 'Dark' : 'Light' }mode
-                    </Nav.Link>
-                    {/* <Nav.Link onClick={() => fetchData()}>
-                        { props.loggedIn ? 'Logout' : 'Login'}
-                    </Nav.Link> */}
-                </Nav>
             </Container>
         </Navbar>
     );

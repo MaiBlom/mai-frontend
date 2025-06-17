@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.app-header-dark {
+.app-dark {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -23,7 +23,7 @@ code {
   color: white;
 }
 
-.app-header-light {
+.app-light {
   background-color: #ffffff;
   min-height: 100vh;
   display: flex;
@@ -34,6 +34,6 @@ code {
   color: rgb(0, 0, 0);
 }
 
-.App-link {
+.app-link {
   color: #61dafb;
 }
