@@ -2,4 +2,3 @@ node_modules
 .vscode
 dist
 .pnpm-store
-wrangler.jsonc

@@ -151,5 +151,5 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-/wrangler.jsonc
+Dockerfile.test
+docker-compose.yml.test
