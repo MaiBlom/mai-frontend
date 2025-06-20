@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
-  "proxy": "http://localhost:3000",
+  "proxy": "http://127.0.0.1:3000",
   "volta": {
     "node": "24.0.1"
   },
@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "rebuild-docker-image": "sudo docker compose down && sudo docker compose build --no-cache && sudo docker compose up -d"
+    "docker": "sudo docker compose down && sudo docker compose build --no-cache && sudo docker compose up -d"
   },
   "browserslist": {
     "production": [
