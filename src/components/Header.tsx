@@ -29,11 +29,12 @@ function Header(props: {
                     <Navbar.Brand>Mai Blom</Navbar.Brand>
                 </Nav>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav"
-                    style={{ flexDirection: 'row' }}
+                <Navbar.Collapse
+                    id="responsive-navbar-nav"
+                    role="region"
                     onEnter={ () => setLoginPositionCss(false)}
                     onExited={ () => setLoginPositionCss(true) }>
-                    <Nav>
+                    <Nav className="me-auto">
                         <Nav.Link as={Link} to={`/`}>Home</Nav.Link>
                         <NavDropdown title="Games" id="collapsible-nav-dropdown">
                             <NavDropdown.Item as={Link} to={`/tictactoe`}>Tic Tac Toe</NavDropdown.Item>

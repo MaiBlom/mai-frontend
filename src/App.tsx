@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
+import * as React from 'react';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import AboutMePage from './pages/AboutMePage';
