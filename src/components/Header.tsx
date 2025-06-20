@@ -13,7 +13,7 @@ function Header(props: {
     loggedIn: boolean,
     setLoggedIn: () => void
 }) {
-    const [loginPositionCss, setLoginPositionCss] = useState(false);
+    const [loginPositionCss, setLoginPositionCss] = useState(true);
     return (
         <Navbar
             bg={`${props.theme ? 'dark' : 'light'}`}
@@ -42,7 +42,7 @@ function Header(props: {
                         </NavDropdown>
                         <Nav.Link as={Link} to={`/aboutme`}>About me</Nav.Link>
                     </Nav>
-                    <Nav style={ loginPositionCss ? { position: 'fixed', float: 'right', right: '10px' } : {} }>
+                    <Nav style={ loginPositionCss ? { position: 'fixed', float: 'right', right: '85px' } : {} }>
                         <Nav.Link>
                             { props.loggedIn ? 'Logout' : 'Login'}
                         </Nav.Link>
