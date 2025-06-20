@@ -1,5 +1,13 @@
-FROM nginx:alpine
+FROM node:24-alpine
 
-COPY . /usr/share/nginx/html
+RUN npm install -g pnpm
 
-EXPOSE 80
+WORKDIR /var/www/html
+
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
+
+COPY . .
+
+EXPOSE 8080
+CMD [ "pnpm", "start" ]
