@@ -26,7 +26,7 @@ function Header(props: {
                         onClick={props.toggleTheme}>
                             { props.theme ? <Moon /> : <Sun /> }
                     </Nav.Link>
-                    <Navbar.Brand>Mai page</Navbar.Brand>
+                    <Navbar.Brand>Mai Blom</Navbar.Brand>
                 </Nav>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav"
