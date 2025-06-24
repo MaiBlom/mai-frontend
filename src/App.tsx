@@ -8,18 +8,24 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import TetrisPage from './pages/games/TetrisPage';
 import TicTacToePage from './pages/games/TicTacToePage';
 import SnakePage from './pages/games/SnakePage';
+import RegisterModal from 'components/modals/Register';
+import LoginModal from 'components/modals/Login';
 
 function App() {
+    const [registerModal, setRegisterModal] = useState(false);
+    const [loginModal, setLoginModal] = useState(false);
+
     const [loggedIn, setLoggedIn] = useState(false);
     const [theme, toggleTheme] = useState(true);
 
     return (
         <BrowserRouter basename='/'>
             <Header
-                theme={ theme }
-                toggleTheme={ () => toggleTheme(theme => !theme) }
-                loggedIn={ loggedIn }
-                setLoggedIn={ () => setLoggedIn(loggedIn => !loggedIn) }
+                theme={theme}
+                toggleTheme={() => toggleTheme(theme => !theme)}
+                loggedIn={loggedIn}
+                setRegisterModal={() => setRegisterModal(true)}
+                setLoginModal={() => setLoginModal(true)}
             />
             <div className={`app-${theme ? 'dark' : 'light'}`}>
                 <React.StrictMode>
@@ -34,7 +40,18 @@ function App() {
                     </Routes>
                 </React.StrictMode>
             </div>
-        </BrowserRouter>
+            <RegisterModal
+                theme={theme}
+                show={registerModal}
+                setRegisterModal={() => setRegisterModal(false)}>
+            </RegisterModal>
+            <LoginModal
+                theme={theme}
+                show={loginModal}
+                setLoginModal={() => setLoginModal(false)}
+                setLoggedIn={(bool: boolean) => setLoggedIn(bool)}>
+            </LoginModal>
+        </BrowserRouter >
     );
 }
 
