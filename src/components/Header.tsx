@@ -45,7 +45,7 @@ function Header(props: {
                         </NavDropdown>
                         <Nav.Link as={Link} to={`/aboutme`}>About me</Nav.Link>
                     </Nav>
-                    <Nav style={loginPositionCss ? { position: 'fixed', float: 'right', right: '85px' } : {}}>
+                    <Nav style={loginPositionCss ? { float: 'right' } : {}}>
                         <Nav.Link onClick={props.setRegisterModal}>
                             Register
                         </Nav.Link>
