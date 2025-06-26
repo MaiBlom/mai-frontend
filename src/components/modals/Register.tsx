@@ -89,6 +89,7 @@ function RegisterModal(props: {
                     setSubmitted(false);
                     setRegisterSuccess(true);
                     await delay(3000);
+                    setRegisterSuccess(false);
                     props.setRegisterModal();
                 }
             }).catch((e) => {
@@ -113,7 +114,7 @@ function RegisterModal(props: {
                         <Form onSubmit={(e) => { e.preventDefault(); registerUser(values); handleChange; }} noValidate>
                             {/* Header */}
                             <Modal.Header closeButton>
-                                <Modal.Title>Register</Modal.Title>
+                                <Modal.Title>ᓚᘏᗢ</Modal.Title>
                             </Modal.Header>
 
                             {/* Body */}
