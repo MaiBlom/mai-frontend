@@ -12,7 +12,9 @@ const delay = async (ms: number) => new Promise(res => setTimeout(res, ms));
 
 // Yup validation schema
 const schema = yup.object().shape({
-    username: yup.string().required('Please choose a username'),
+    username: yup.string()
+        .min(3, 'Your username has to be minimum 3 character long')
+        .max(32, 'Your username has to be maximum 32 character long').required('Please choose a username'),
     password: yup.string()
         .min(8, 'Your password has to be minimum 8 character long')
         .max(64, 'Your password has to be maximum 64 character long')
